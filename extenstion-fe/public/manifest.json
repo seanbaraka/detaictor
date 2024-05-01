@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "DetAIctor",
+  "version": "1.0",
+  "description": "Helps detect AI generated content",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "index.html"
+    // "default_icon": {
+    //   "16": "images/get_started16.png",
+    //   "48": "images/get_started48.png",
+    //   "128": "images/get_started128.png"
+    // }
+  }
+}
