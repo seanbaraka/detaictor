@@ -19,14 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <PayPalScriptProvider
-          options={{
-            clientId:
-              "AZOR62tJaGhQBZs6sDIRnHuVlg-2uZiaCcshm6auP0QUAkL39XvOmhehmsdzV5F_vFBAunUR-SA35at8",
-          }}
-        > */}
         <SiteLayout>{children}</SiteLayout>
-        {/* </PayPalScriptProvider> */}
       </body>
     </html>
   );
