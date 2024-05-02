@@ -98,11 +98,12 @@ export default function Checkout() {
                       }}
                       onApprove={async (data, actions) => {
                         const order = await actions?.order?.capture();
-                        console.log("Order", order?.payment_source?.paypal);
+                        console.log("Order", order);
                         const response = await fetch("/api/orders", {
                           method: "post",
                           body: JSON.stringify({
                             details: order?.payer,
+                            purchaseUnits: order?.purchase_units,
                           }),
                         });
                         const result = await response.json();
