@@ -15,7 +15,6 @@ function App() {
 
   useEffect(() => {
     const userId = localStorage.getItem("user");
-    console.log(1, userId);
     if (userId) setUserId(userId);
   }, [userId]);
 
@@ -52,12 +51,11 @@ function App() {
 
   return (
     <main className="h-[380px] container mx-auto text-center p-2 overflow-hidden">
-      <span>Getting User Info: {gettingUserInfo.valueOf()}</span>
       {!user && !gettingUserInfo ? (
-        <div p-4>
+        <div className="p-4">
           <div className="flex gap-2">
             <input
-              className="w-full p-2 rounded-md"
+              className="w-full p-1 rounded-md border border-gray-300"
               placeholder="Enter Your Email"
               onChange={(e) => setEmail(e.target.value)}
               type="email"
@@ -77,16 +75,17 @@ function App() {
             onClick={() => setContentToSearch(pageContent)}
             className="bg-teal-700 cursor-pointer font-semibold text-white rounded-lg px-12 py-3 text-xs"
           >
-            Yes, check this page for {(wordCount * 10) / 1500} cents
+            Yes, check this page for{" "}
+            {Math.ceil(Number((wordCount * 10) / 1500))} cents
           </button>
           <div className="my-4">
             <h2 className="flex flex-col justify-center gap-2 my-6">
               <span className="text-6xl font-extrabold">{wordCount}</span>
               <span className="text-xs font-semibold">
-                Words Detected on this page
+                Words detected on this page
               </span>
             </h2>
-            {isLoading && <div className="loading-state">Loading....</div>}
+            {isLoading && <div className="loading-state">Analyzing....</div>}
 
             {data && (
               <div className="flex flex-col gap-2">
@@ -94,10 +93,10 @@ function App() {
                   Originality Score
                 </p>
                 <p className="text-4xl font-extrabold">
-                  {Math.floor(Number(data?.results[0].probability) * 100)}%
+                  {Math.floor(Number(data?.score.original) * 100)}%
                 </p>
                 <p className="text-gray-500 text-sm font-semibold">
-                  {data?.results[0].probability > 0.5
+                  {data?.score.original > 0.5
                     ? "This content is unique"
                     : "This content is not unique"}
                 </p>
@@ -114,7 +113,8 @@ function App() {
             {!isLoading && !data && !error && user && (
               <div className="account-info">
                 <p className="font-bold text-gray-500 my-2">
-                  {user.creditsBalance} word-credits available
+                  {Number(user.creditsBalance * 1500).toLocaleString()} ($49.99)
+                  words remaining after
                 </p>
                 <div>
                   <a
