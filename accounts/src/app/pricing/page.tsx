@@ -27,14 +27,14 @@ export default function Pricing() {
             <div className="grid gap-6 md:grid-cols-2">
               <Card className="flex flex-col bg-white dark:bg-gray-950">
                 <CardHeader className="border-b border-gray-200 dark:border-gray-800 px-6 py-4">
-                  <CardTitle className="text-2xl font-bold">Free</CardTitle>
+                  <CardTitle className="text-2xl font-bold">Basic</CardTitle>
                   <CardDescription className="text-gray-500 dark:text-gray-400">
                     Get started for free
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="px-6 py-8 space-y-4">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold">$0</span>
+                    <span className="text-4xl font-bold">$5</span>
                     <span className="text-gray-500 dark:text-gray-400">
                       / month
                     </span>
@@ -42,7 +42,7 @@ export default function Pricing() {
                   <ul className="space-y-2 text-gray-500 dark:text-gray-400">
                     <li className="flex items-center gap-2">
                       <CheckIcon className="h-4 w-4 fill-primary" />
-                      10 credits per month
+                      10 free credits for the first month
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckIcon className="h-4 w-4 fill-primary" />
@@ -55,26 +55,33 @@ export default function Pricing() {
                   </ul>
                 </CardContent>
                 <CardFooter className="border-t border-gray-200 dark:border-gray-800 px-6 py-4">
-                  <Button className="w-full" variant="outline">
-                    Get Started
-                  </Button>
+                  <Link
+                    href="pricing/checkout?plan=basic&price=5"
+                    className="text-center bg-black text-white p-2 rounded-md text-sm min-w-full"
+                  >
+                    Get Basic
+                  </Link>
                 </CardFooter>
               </Card>
               <Card className="flex flex-col bg-white dark:bg-gray-950">
                 <CardHeader className="border-b border-gray-200 dark:border-gray-800 px-6 py-4">
-                  <CardTitle className="text-2xl font-bold">Premium</CardTitle>
+                  <CardTitle className="text-2xl font-bold">Advanced</CardTitle>
                   <CardDescription className="text-gray-500 dark:text-gray-400">
                     Unlock more features
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="px-6 py-8 space-y-4">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold">$49</span>
+                    <span className="text-4xl font-bold">$22</span>
                     <span className="text-gray-500 dark:text-gray-400">
                       / month
                     </span>
                   </div>
                   <ul className="space-y-2 text-gray-500 dark:text-gray-400">
+                    <li className="flex items-center gap-2">
+                      <CheckIcon className="h-4 w-4 fill-primary" />
+                      10 free credits for the first month
+                    </li>
                     <li className="flex items-center gap-2">
                       <CheckIcon className="h-4 w-4 fill-primary" />
                       500 credits per month
@@ -95,7 +102,53 @@ export default function Pricing() {
                 </CardContent>
                 <CardFooter className="border-t border-gray-200 dark:border-gray-800 px-6 py-4">
                   <Link
-                    href="pricing/checkout"
+                    href="pricing/checkout?plan=advanced&price=22"
+                    className="text-center bg-black text-white p-2 rounded-md text-sm min-w-full"
+                  >
+                    Get Advanced
+                  </Link>
+                </CardFooter>
+              </Card>
+              <Card className="flex flex-col bg-white dark:bg-gray-950">
+                <CardHeader className="border-b border-gray-200 dark:border-gray-800 px-6 py-4">
+                  <CardTitle className="text-2xl font-bold">Premium</CardTitle>
+                  <CardDescription className="text-gray-500 dark:text-gray-400">
+                    Unlock more features
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="px-6 py-8 space-y-4">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold">$49</span>
+                    <span className="text-gray-500 dark:text-gray-400">
+                      / month
+                    </span>
+                  </div>
+                  <ul className="space-y-2 text-gray-500 dark:text-gray-400">
+                    <li className="flex items-center gap-2">
+                      <CheckIcon className="h-4 w-4 fill-primary" />
+                      10 free credits for the first month
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckIcon className="h-4 w-4 fill-primary" />
+                      500 credits per month
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckIcon className="h-4 w-4 fill-primary" />
+                      Advanced AI content analysis
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckIcon className="h-4 w-4 fill-primary" />
+                      Priority support
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckIcon className="h-4 w-4 fill-primary" />
+                      Credit top-ups available
+                    </li>
+                  </ul>
+                </CardContent>
+                <CardFooter className="border-t border-gray-200 dark:border-gray-800 px-6 py-4">
+                  <Link
+                    href="pricing/checkout?plan=premium&price=49"
                     className="text-center bg-black text-white p-2 rounded-md text-sm min-w-full"
                   >
                     Get Premium

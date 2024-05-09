@@ -6,6 +6,9 @@ import { useState } from "react";
 
 export default function Checkout() {
   const [completed, setCompleted] = useState(false);
+  // TODO: implement some sort of validation to prevent users from accessing this page without a price/plan
+  const queryParams = new URLSearchParams(window.location.search);
+  const price = queryParams.get("price");
 
   return (
     <section className="w-full max-w-screen-lg mx-auto py-12 md:py-20">
@@ -90,7 +93,7 @@ export default function Checkout() {
                             {
                               amount: {
                                 currency_code: "USD",
-                                value: "49.99",
+                                value: price ?? "49.99",
                               },
                             },
                           ],
